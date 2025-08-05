@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Design Token Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="dark_gray">#645E5E</color>
+    <color name="medium_gray">#7E7E7E</color>
+    <color name="light_gray">#E0E0E0</color>
+    <color name="red">#D90000</color>
+    <color name="blue">#007AFF</color>
+    <color name="dark_blue">#2196F3</color>
+    
+
+</resources>

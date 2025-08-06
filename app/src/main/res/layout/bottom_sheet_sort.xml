@@ -7,7 +7,6 @@
     android:padding="24dp"
     android:paddingBottom="32dp">
 
-    <!-- Drag Handle -->
     <View
         android:id="@+id/drag_handle"
         android:layout_width="32dp"
@@ -18,7 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Header -->
     <LinearLayout
         android:id="@+id/header_layout"
         android:layout_width="match_parent"
@@ -47,7 +45,6 @@
 
     </LinearLayout>
 
-    <!-- Sort Options -->
     <LinearLayout
         android:id="@+id/sort_radio_group"
         android:layout_width="match_parent"
@@ -56,7 +53,6 @@
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/header_layout">
 
-        <!-- Default -->
         <LinearLayout
             android:id="@+id/sort_default_container"
             android:layout_width="match_parent"
@@ -106,7 +102,6 @@
 
         </LinearLayout>
 
-        <!-- Alphabetically A-Z -->
         <LinearLayout
             android:id="@+id/sort_name_asc_container"
             android:layout_width="match_parent"
@@ -156,7 +151,6 @@
 
         </LinearLayout>
 
-        <!-- Alphabetically Z-A -->
         <LinearLayout
             android:id="@+id/sort_name_desc_container"
             android:layout_width="match_parent"
@@ -206,7 +200,6 @@
 
         </LinearLayout>
 
-        <!-- Price low to high -->
         <LinearLayout
             android:id="@+id/sort_price_asc_container"
             android:layout_width="match_parent"
@@ -256,7 +249,6 @@
 
         </LinearLayout>
 
-        <!-- Price high to low -->
         <LinearLayout
             android:id="@+id/sort_price_desc_container"
             android:layout_width="match_parent"
@@ -308,7 +300,6 @@
 
     </LinearLayout>
 
-    <!-- Action Buttons -->
     <LinearLayout
         android:id="@+id/action_buttons_layout"
         android:layout_width="match_parent"

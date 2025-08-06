@@ -38,27 +38,21 @@ class ProductAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         
         fun bind(product: Product) {
-            // Set product name
             binding.productName.text = product.title
             
-            // Set product description
             binding.productDescription.text = product.description
             
-            // Format price with discount
             val originalPrice = product.price
             val discountPrice = originalPrice * (1 - product.discountPercentage / 100)
             
-            // Set prices
             binding.currentPrice.text = "$${String.format("%.2f", discountPrice)}"
             binding.originalPrice.text = "$${String.format("%.2f", originalPrice)}"
             
-            // Load image with Glide
             Glide.with(binding.productImage.context)
                 .load(product.thumbnail)
                 .centerCrop()
                 .into(binding.productImage)
             
-            // Set click listener for the entire item
             binding.root.setOnClickListener {
                 onProductClick(product)
             }

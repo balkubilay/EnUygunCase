@@ -76,7 +76,6 @@ class CartFragment : Fragment() {
             }
         }
 
-        // Observe cart summary for dynamic price calculations
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.cartSummary.collectLatest { summary ->
                 updateCartSummary(summary)
@@ -85,16 +84,12 @@ class CartFragment : Fragment() {
     }
 
     private fun updateCartSummary(summary: ProductViewModel.CartSummary) {
-        // Update price (subtotal)
         binding.priceText.text = String.format("%.2f", summary.price)
         
-        // Update discount
         binding.discountText.text = String.format("%.2f", summary.discount)
         
-        // Update total
         binding.totalPriceText.text = String.format("%.2f", summary.total)
         
-        // Show/hide discount section based on whether there's a discount
         val discountContainer = binding.discountText.parent as? android.widget.LinearLayout
         discountContainer?.visibility = if (summary.discount > 0) View.VISIBLE else View.GONE
     }

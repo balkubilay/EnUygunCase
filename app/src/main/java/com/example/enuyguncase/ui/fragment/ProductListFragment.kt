@@ -52,7 +52,6 @@ class ProductListFragment : Fragment() {
     private fun setupRecyclerView() {
         productAdapter = ProductAdapter(
             onProductClick = { product ->
-                // Navigate to product detail
                 val bundle = Bundle().apply {
                     putString("productId", product.id.toString())
                 }
@@ -78,7 +77,6 @@ class ProductListFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.isLoading.collectLatest { isLoading ->
-                // Show/hide loading indicator
                 binding.root.isEnabled = !isLoading
             }
         }
@@ -94,7 +92,6 @@ class ProductListFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.totalProducts.collectLatest { total ->
-                // Update total count in header
                 binding.countText.text = "(Toplam $total adet)"
             }
         }

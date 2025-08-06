@@ -7,7 +7,6 @@
     android:padding="24dp"
     android:paddingBottom="32dp">
 
-    <!-- Drag Handle -->
     <View
         android:id="@+id/drag_handle"
         android:layout_width="32dp"
@@ -18,7 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Header -->
     <LinearLayout
         android:id="@+id/header_layout"
         android:layout_width="match_parent"
@@ -47,7 +45,6 @@
 
     </LinearLayout>
 
-    <!-- Filter Options -->
     <LinearLayout
         android:id="@+id/filter_radio_group"
         android:layout_width="match_parent"
@@ -56,11 +53,9 @@
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/header_layout">
 
-        <!-- All filter options will be added here programmatically -->
 
     </LinearLayout>
 
-    <!-- Action Buttons -->
     <LinearLayout
         android:id="@+id/action_buttons_layout"
         android:layout_width="match_parent"

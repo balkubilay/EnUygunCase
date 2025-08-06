@@ -15,7 +15,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Success Icon -->
         <LinearLayout
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -30,7 +29,6 @@
                 app:tint="#4CAF50" />
         </LinearLayout>
 
-        <!-- Success Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,7 +38,6 @@
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <!-- Success Message -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,7 +47,6 @@
             android:textColor="@color/black"
             android:textSize="16sp" />
 
-        <!-- Order Details -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -96,7 +92,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Timer and Click Area -->
         <LinearLayout
             android:id="@+id/click_area"
             android:layout_width="match_parent"

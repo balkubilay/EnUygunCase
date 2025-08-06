@@ -48,12 +48,10 @@ class ProductViewModel @Inject constructor(
     private val _availableCategories = MutableStateFlow<List<String>>(emptyList())
     val availableCategories: StateFlow<List<String>> = _availableCategories.asStateFlow()
     
-    // Cart and Favorite states
     val cartItems = cartRepository.cartItems
     val totalCartItems = cartRepository.totalItems
     val totalCartPrice = cartRepository.totalPrice
     
-    // Cart summary calculations
     private val _cartSummary = MutableStateFlow(CartSummary(0.0, 0.0, 0.0))
     val cartSummary: StateFlow<CartSummary> = _cartSummary.asStateFlow()
     
@@ -94,7 +92,6 @@ class ProductViewModel @Inject constructor(
     }
     
     private fun calculateDiscount(subtotal: Double): Double {
-        // Discount logic: 10% discount for orders over 100 TL, 15% for orders over 500 TL
         return when {
             subtotal >= 500 -> subtotal * 0.15
             subtotal >= 100 -> subtotal * 0.10

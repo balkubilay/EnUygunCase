@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        // Full screen setup
         setupFullScreen()
         
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -40,30 +39,22 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun setupFullScreen() {
-        // Hide status bar and navigation bar
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         
-        // Make the app edge-to-edge
         enableEdgeToEdge()
         
-        // Hide system bars
         WindowCompat.setDecorFitsSystemWindows(window, false)
         
-        // Set up window insets controller
         val windowInsetsController = WindowCompat.getInsetsController(window, window.decorView)
         windowInsetsController.apply {
-            // Hide status bar
             hide(WindowInsetsCompat.Type.statusBars())
-            // Hide navigation bar
             hide(WindowInsetsCompat.Type.navigationBars())
-            // Make system bars behave as hidden
             systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
         
-        // Additional flags to ensure full screen
         window.decorView.systemUiVisibility = (
             View.SYSTEM_UI_FLAG_FULLSCREEN or
             View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
@@ -77,7 +68,6 @@ class MainActivity : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) {
-            // Re-apply full screen when window gains focus
             window.decorView.systemUiVisibility = (
                 View.SYSTEM_UI_FLAG_FULLSCREEN or
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
@@ -94,7 +84,6 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         
-        // Handle tab clicks
         binding.bottomNavigation.findViewById<android.view.View>(R.id.home_tab)?.setOnClickListener {
             navController.navigate(R.id.productListFragment)
         }

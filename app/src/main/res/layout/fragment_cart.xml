@@ -7,7 +7,6 @@
     android:background="@color/white"
     tools:context=".CartFragment">
 
-    <!-- Header -->
     <LinearLayout
         android:id="@+id/header_layout"
         android:layout_width="match_parent"
@@ -37,7 +36,6 @@
             android:fontFamily="@font/inter_regular" />
     </LinearLayout>
 
-    <!-- Empty Cart Layout -->
     <LinearLayout
         android:id="@+id/empty_cart_layout"
         android:layout_width="match_parent"
@@ -75,7 +73,6 @@
             android:fontFamily="@font/inter_regular" />
     </LinearLayout>
 
-    <!-- Cart Content Layout -->
     <LinearLayout
         android:id="@+id/cart_content_layout"
         android:layout_width="match_parent"
@@ -84,7 +81,6 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_layout"
         app:layout_constraintTop_toBottomOf="@id/header_layout">
 
-        <!-- Cart Items -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cart_recycler_view"
             android:layout_width="match_parent"
@@ -94,7 +90,6 @@
 
     </LinearLayout>
 
-    <!-- Bottom Layout -->
     <LinearLayout
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
@@ -104,14 +99,12 @@
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <!-- Summary Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginBottom="16dp">
 
-            <!-- Price -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,7 +131,6 @@
                     android:fontFamily="@font/inter_regular" />
             </LinearLayout>
 
-            <!-- Discount -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -165,7 +157,6 @@
                     android:fontFamily="@font/inter_regular" />
             </LinearLayout>
 
-            <!-- Total -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -192,7 +183,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Checkout Button -->
         <TextView
             android:id="@+id/checkout_button"
             android:layout_width="match_parent"

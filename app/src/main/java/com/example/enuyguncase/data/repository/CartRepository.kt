@@ -32,7 +32,6 @@ class CartRepository @Inject constructor(
     private val scope = CoroutineScope(Dispatchers.IO)
     
     init {
-        // Load saved cart items when repository is initialized
         databaseManager.getAllCartItems()
             .onEach { savedCartItems ->
                 _cartItems.value = savedCartItems
@@ -48,7 +47,6 @@ class CartRepository @Inject constructor(
         val existingItem = _cartItems.value.find { it.product.id == product.id }
         
         if (existingItem != null) {
-            // Update existing item quantity
             val updatedItems = _cartItems.value.map { item ->
                 if (item.product.id == product.id) {
                     item.copy(quantity = item.quantity + quantity)
@@ -58,7 +56,6 @@ class CartRepository @Inject constructor(
             }
             _cartItems.value = updatedItems
         } else {
-            // Add new item
             val newItem = CartItem(
                 id = nextId++,
                 product = product,
@@ -126,7 +123,6 @@ class CartRepository @Inject constructor(
     
     private fun saveCartItems() {
         scope.launch {
-            // Clear existing items and insert new ones
             databaseManager.deleteAllCartItems()
             _cartItems.value.forEach { cartItem ->
                 databaseManager.insertCartItem(cartItem)

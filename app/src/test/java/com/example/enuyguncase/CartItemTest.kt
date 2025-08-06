@@ -10,7 +10,6 @@ class CartItemTest {
 
     @Test
     fun `test cart item creation`() {
-        // Given
         val product = Product(
             id = 1,
             title = "iPhone 15",
@@ -25,14 +24,12 @@ class CartItemTest {
             images = listOf("https://example.com/iphone1.jpg")
         )
 
-        // When
         val cartItem = CartItem(
             id = 1,
             product = product,
             quantity = 2
         )
 
-        // Then
         assertNotNull(cartItem)
         assertEquals(1, cartItem.id)
         assertEquals(product, cartItem.product)
@@ -41,7 +38,6 @@ class CartItemTest {
 
     @Test
     fun `test cart item total price calculation`() {
-        // Given
         val product = Product(
             id = 2,
             title = "iPad Pro",
@@ -62,12 +58,10 @@ class CartItemTest {
             quantity = 3
         )
 
-        // When
         val expectedTotal = product.price * 3 * (1 - product.discountPercentage / 100)
 
-        // Then
         assertEquals(expectedTotal, cartItem.totalPrice, 0.01)
-        assertEquals(2207.97, cartItem.totalPrice, 0.01) // 799.99 * 3 * 0.92
+        assertEquals(2207.97, cartItem.totalPrice, 0.01)
     }
 
     @Test

@@ -37,7 +37,6 @@ class CheckoutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         
-        // Hide bottom navigation
         hideBottomNavigation()
         
         setupClickListeners()
@@ -51,15 +50,12 @@ class CheckoutFragment : Fragment() {
     }
     
     private fun setupClickListeners() {
-        // Back button
         binding.backButton.setOnClickListener {
             findNavController().navigateUp()
         }
         
-        // Pay button
         binding.payButton.setOnClickListener {
             if (validateForm()) {
-                // Navigate to payment success
                 val total = viewModel.totalCartPrice.value
                 val action = com.example.enuyguncase.R.id.action_checkoutFragment_to_paymentSuccessFragment
                 findNavController().navigate(action, Bundle().apply {
@@ -72,7 +68,6 @@ class CheckoutFragment : Fragment() {
     }
     
     private fun setupTextWatchers() {
-        // Name input validation
         binding.nameEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -81,7 +76,6 @@ class CheckoutFragment : Fragment() {
             }
         })
         
-        // Email input validation
         binding.emailEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -92,7 +86,6 @@ class CheckoutFragment : Fragment() {
             }
         })
         
-        // Phone input validation
         binding.phoneEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}

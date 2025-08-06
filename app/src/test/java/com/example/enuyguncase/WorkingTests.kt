@@ -12,7 +12,6 @@ class WorkingTests {
 
     @Test
     fun `test product creation`() {
-        // Given
         val product = Product(
             id = 1,
             title = "MacBook Pro",
@@ -27,7 +26,6 @@ class WorkingTests {
             images = listOf("https://example.com/macbook1.jpg", "https://example.com/macbook2.jpg")
         )
 
-        // When & Then
         assertNotNull(product)
         assertEquals(1, product.id)
         assertEquals("MacBook Pro", product.title)
@@ -37,7 +35,6 @@ class WorkingTests {
 
     @Test
     fun `test cart item creation`() {
-        // Given
         val product = Product(
             id = 1,
             title = "iPhone 15",
@@ -52,19 +49,17 @@ class WorkingTests {
             images = listOf("https://example.com/iphone1.jpg")
         )
 
-        // When
         val cartItem = CartItem(
             id = 1,
             product = product,
             quantity = 2
         )
 
-        // Then
         assertNotNull(cartItem)
         assertEquals(1, cartItem.id)
         assertEquals(product, cartItem.product)
         assertEquals(2, cartItem.quantity)
-        assertEquals(1899.98, cartItem.totalPrice, 0.01) // 999.99 * 2 * 0.95
+        assertEquals(1899.98, cartItem.totalPrice, 0.01)
     }
 
     @Test

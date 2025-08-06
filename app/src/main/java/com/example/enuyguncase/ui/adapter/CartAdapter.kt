@@ -42,27 +42,21 @@ class CartAdapter(
             binding.apply {
                 productTitle.text = cartItem.product.title
                 
-                // Format prices
                 val originalPrice = cartItem.product.price
                 val discountPrice = originalPrice * (1 - cartItem.product.discountPercentage / 100)
                 
-                // Set current price
                 productPrice.text = "$${String.format("%.2f", discountPrice)}"
                 
-                // Set original price with strikethrough
                 productOriginalPrice.text = "$${String.format("%.2f", originalPrice)}"
                 productOriginalPrice.paintFlags = productOriginalPrice.paintFlags or android.graphics.Paint.STRIKE_THRU_TEXT_FLAG
                 
-                // Set quantity
                 quantityText.text = cartItem.quantity.toString()
                 
-                // Load image
                 Glide.with(productImage.context)
                     .load(cartItem.product.thumbnail)
                     .centerCrop()
                     .into(productImage)
                 
-                // Set click listeners
                 increaseButton.setOnClickListener {
                     onQuantityChange(cartItem, cartItem.quantity + 1)
                 }

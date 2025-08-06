@@ -10,7 +10,6 @@ class ProductTest {
 
     @Test
     fun `test product creation with all fields`() {
-        // Given
         val product = Product(
             id = 1,
             title = "MacBook Pro",
@@ -25,7 +24,6 @@ class ProductTest {
             images = listOf("https://example.com/macbook1.jpg", "https://example.com/macbook2.jpg")
         )
 
-        // Then
         assertNotNull(product)
         assertEquals(1, product.id)
         assertEquals("MacBook Pro", product.title)
@@ -42,7 +40,6 @@ class ProductTest {
 
     @Test
     fun `test product with null brand`() {
-        // Given
         val product = Product(
             id = 2,
             title = "Generic Laptop",
@@ -57,7 +54,6 @@ class ProductTest {
             images = listOf("https://example.com/generic1.jpg")
         )
 
-        // Then
         assertNotNull(product)
         assertEquals(2, product.id)
         assertEquals("Generic Laptop", product.title)
@@ -67,7 +63,6 @@ class ProductTest {
 
     @Test
     fun `test product price calculation`() {
-        // Given
         val product = Product(
             id = 3,
             title = "Samsung Galaxy",
@@ -82,16 +77,13 @@ class ProductTest {
             images = listOf("https://example.com/galaxy1.jpg")
         )
 
-        // When
         val discountedPrice = product.price * (1 - product.discountPercentage / 100)
 
-        // Then
-        assertEquals(764.99, discountedPrice, 0.01) // 899.99 * 0.85
+        assertEquals(764.99, discountedPrice, 0.01)
     }
 
     @Test
     fun `test product with zero discount`() {
-        // Given
         val product = Product(
             id = 4,
             title = "Dell XPS",
@@ -106,16 +98,13 @@ class ProductTest {
             images = listOf("https://example.com/dell1.jpg")
         )
 
-        // When
         val discountedPrice = product.price * (1 - product.discountPercentage / 100)
 
-        // Then
-        assertEquals(1499.99, discountedPrice, 0.01) // No discount
+        assertEquals(1499.99, discountedPrice, 0.01)
     }
 
     @Test
     fun `test product stock validation`() {
-        // Given
         val product = Product(
             id = 5,
             title = "HP Pavilion",
@@ -130,14 +119,12 @@ class ProductTest {
             images = listOf("https://example.com/hp1.jpg")
         )
 
-        // Then
         assertTrue(product.stock > 0)
-        assertTrue(product.stock <= 100) // Reasonable stock limit
+        assertTrue(product.stock <= 100)
     }
 
     @Test
     fun `test product rating validation`() {
-        // Given
         val product = Product(
             id = 6,
             title = "Lenovo ThinkPad",
@@ -152,14 +139,12 @@ class ProductTest {
             images = listOf("https://example.com/lenovo1.jpg")
         )
 
-        // Then
         assertTrue(product.rating >= 0.0)
         assertTrue(product.rating <= 5.0)
     }
 
     @Test
     fun `test product category validation`() {
-        // Given
         val validCategories = listOf("Electronics", "Clothing", "Books", "Home", "Sports", "Automotive")
         val product = Product(
             id = 7,
@@ -175,13 +160,11 @@ class ProductTest {
             images = listOf("https://example.com/nike1.jpg")
         )
 
-        // Then
         assertTrue(validCategories.contains(product.category))
     }
 
     @Test
     fun `test product images list`() {
-        // Given
         val product = Product(
             id = 8,
             title = "Adidas Jacket",
@@ -196,7 +179,6 @@ class ProductTest {
             images = listOf("https://example.com/adidas1.jpg", "https://example.com/adidas2.jpg", "https://example.com/adidas3.jpg")
         )
 
-        // Then
         assertEquals(3, product.images.size)
         assertTrue(product.images.all { it.startsWith("https://") })
     }
